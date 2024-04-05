@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side">
+      <div style="background-color: #7062c3; height: 64px;">
+      </div>
+      <mat-nav-list>
+        <div style="margin-top: 20px; display: block;"></div>
+            <a mat-list-item href="users-admin" style="display: flex; align-items: center; justify-content: space-between; ">
+            <div style="display: flex; align-items: center;">
+              <i class="fa-solid fa-gears" style="font-size: 20px;"></i>
+                <span style="font-size: small;padding:11px;">Gestione Utenti</span>
+            </div>
+            <!-- Aggiungi il testo o altri elementi qui sulla parte destra -->
+            </a>
+            <a mat-list-item href="#" style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center;">
+                  <i class="fa-solid fa-chart-simple" style="font-size: 20px;"></i>
+                  <span style="font-size: small; padding:23px;">Log Utenti</span>
+                </div>
+                <!-- Aggiungi il testo o altri elementi qui sulla parte destra -->
+              </a>
+      </mat-nav-list>
+        <div style="position: absolute; top: 0; right: 0; padding: 10px;">
+          <button mat-button style="position: absolute;  right: 0; padding: 10px;border: 1px solid transparent; transition: border-color 0.3s;" (click)="Closeside()">
+            <i class="fa-solid fa-circle-left" style="color: white;" ><span class="text-sidenav">Riduci</span></i>
+          </button>
+          </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button mat-icon-button class="example-icon" *ngIf="isAdmin()" (click)="sidenav.toggle()">
+          <mat-icon class="menu-class">menu</mat-icon>
+        </button>
+        <span>Tool Analisi POS <i class="fa-solid fa-file-lines" style="margin-left: 5px; color: #e32f0e;"></i></span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu utenti">
+          <!-- <mat-icon class="users-admin">supervised_user_circle</mat-icon> -->
+          <i class="fa-regular fa-user" style="font-size: 20px; color: red;"></i>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item class="button-logout" (click)="logout()"><mat-icon class="logout">logout</mat-icon><span style="font-size: 13px;">Log out</span></button>
+        </mat-menu>
+        <div class="admin">{{username}}</div>
+      </mat-toolbar>
+      <div class="flex-container">
+      <!-- Form per il caricamento del file PDF -->
+      <mat-card class="form-container">
+        <form (ngSubmit)="fileInput && fileInput.files ? onSubmit(fileInput.files[0]) : null" id="pdf-upload-form" enctype="multipart/form-data">
+
+          <div>
+            <h4 style="text-align: center; margin-top: 25px;">Carica il documento POS da analizzare</h4>
+            <mat-divider class="horizontal-divider"></mat-divider>
+            <div class="choose-file">
+              <input type="file" id="file-input" #fileInput multiple />
+              <label for="file-input">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                &nbsp;
+                Seleziona un file
+              </label>
+              <div id="num-of-files">Nessun file selezionato</div>
+              <ul id="files-list"></ul>
+            </div>
+          </div>
+          <section style="display: flex; justify-content: center;">
+            <button mat-raised-button type="submit" id="analyzeButton" block="true" [disabled]="submitting" style="padding: 10px 20px; font-size: 17px; margin-top: 35px; ">
+              <span *ngIf="!submitting">Invia</span>
+              <mat-spinner *ngIf="submitting" diameter="24" color="warn"></mat-spinner>
+            </button>
+          </section>
+        </form>
+        
+      </mat-card>
+      <!-- Form per le coordinate -->
+  <!-- <mat-card class="form-container">
+    <form id="coordinates-form" [formGroup]="coordinatesForm" (ngSubmit)="onSubmit()">
+      <div>
+        <h4 style="text-align: center; margin-top: 25px;">Inserisci le coordinate geografiche </h4>
+        <mat-divider class="horizontal-divider"></mat-divider>
+      <div class="input-with-icon">
+        <div class="icon-column">
+          <mat-icon class="coord-icon">gps_fixed</mat-icon>
+          </div>
+      <div class="input-column">
+      <mat-form-field class="example-full-width">
+        <mat-label>Coord. (Latitudine, Longitudine)</mat-label>
+        <input matInput type="text" id="coordinates" name="coordinates" placeholder="es. 45.464203, 9.189982" formControlName="Coordinate">
+        <mat-error>Coordinate richieste</mat-error>
+      </mat-form-field>
+      </div>
+      </div>
+      <div class="input-with-icon">
+        <div class="icon-column"><mat-icon class="coord-icon">room</mat-icon></div>
+        <div class="input-column">
+      <mat-form-field class="example-full-width">
+        <mat-label>Indirizzo</mat-label>
+        <input matInput type="text" id="address" name="address" disabled="true">
+      </mat-form-field>
+    </div>
+  </div>
+  </div>
+  <section style="display: flex; justify-content: center;">
+      <button mat-raised-button type="submit" id="analyzeButton"  block="true"
+      style="padding: 10px 20px; font-size: 17px; margin-top: 35px; "  [disabled]="submitting">
+      <span *ngIf="!submitting">Invia</span>
+      <mat-spinner *ngIf="submitting" diameter="24" color="warn"></mat-spinner>
+      </button>
+      </section>
+    </form>
+  </mat-card> -->
+    </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  

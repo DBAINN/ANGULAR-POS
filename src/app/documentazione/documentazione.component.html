@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side">
+      <div style="background-color: #7062c3; height: 64px;">
+      </div>
+      <mat-nav-list>
+        <div style="margin-top: 20px; display: block;"></div>
+            <a mat-list-item href="users-admin" style="display: flex; align-items: center; justify-content: space-between; ">
+            <div style="display: flex; align-items: center;">
+              <i class="fa-solid fa-gears" style="font-size: 20px;"></i>
+                <span style="font-size: small;padding:11px;">Gestione Utenti</span>
+            </div>
+            <!-- Aggiungi il testo o altri elementi qui sulla parte destra -->
+            </a>
+            <a mat-list-item href="#" style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center;">
+                  <i class="fa-solid fa-chart-simple" style="font-size: 20px;"></i>
+                  <span style="font-size: small; padding:23px;">Log Utenti</span>
+                </div>
+                <!-- Aggiungi il testo o altri elementi qui sulla parte destra -->
+              </a>
+      </mat-nav-list>
+        <div style="position: absolute; top: 0; right: 0; padding: 10px;">
+          <button mat-button style="position: absolute;  right: 0; padding: 10px;border: 1px solid transparent; transition: border-color 0.3s;" (click)="Closeside()">
+            <i class="fa-solid fa-circle-left" style="color: white;" ><span class="text-sidenav">Riduci</span></i>
+          </button>
+          </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button mat-icon-button class="example-icon" *ngIf="isAdmin()" (click)="sidenav.toggle()">
+          <mat-icon class="menu-class">menu</mat-icon>
+        </button>
+        <span>Tool Documentazione<i class="fa-regular fa-file" style="margin-left: 5px; color: #e32f0e;"></i></span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu utenti">
+          <!-- <mat-icon class="users-admin">supervised_user_circle</mat-icon> -->
+          <i class="fa-regular fa-user" style="font-size: 20px; color: red;"></i>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item class="button-logout" (click)="logout()"><mat-icon class="logout">logout</mat-icon><span style="font-size: 13px;">Log out</span></button>
+        </mat-menu>
+        <div class="admin">{{username}}</div>
+      </mat-toolbar>
+      <mat-stepper>
+        <mat-step label="Seleziona PDF" state="PDF">
+          <div class="flex-container">
+            <!-- Form per il caricamento del file PDF -->
+            <mat-card class="form-container">
+              <!-- <form (ngSubmit)="fileInput && fileInput.files ? onSubmit(fileInput.files[0]) : null" id="pdf-upload-form" enctype="multipart/form-data"> -->
+                <form id="pdf-upload-form" enctype="multipart/form-data">
+                <div>
+                  <h4 style="text-align: center; margin-top: 25px;">Carica il documento PDF</h4>
+                  <mat-divider class="horizontal-divider"></mat-divider>
+                  <div class="choose-file">
+                    <input type="file" id="file-input" #fileInput multiple (change)="onFileSelected($event)"/>
+                    <label for="file-input">
+                      <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                      &nbsp;
+                      Seleziona un file
+                    </label>
+                    <div id="num-of-files">Nessun file selezionato</div>
+                    <ul id="files-list"></ul>
+                  </div>
+                </div>
+              </form>              
+            </mat-card>
+          </div>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step label="Seleziona ZIP" state="chat">
+            <div class="flex-container">
+                <!-- Form per il caricamento del file PDF -->
+                <mat-card class="form-container">
+                  <!-- <form (ngSubmit)="fileInput && fileInput.files ? onSubmit(fileInput.files[0]) : null" id="pdf-upload-form" enctype="multipart/form-data"> -->
+                    <form id="pdf-upload-form" enctype="multipart/form-data">
+                    <div>
+                      <h4 style="text-align: center; margin-top: 25px;">Carica il documento ZIP</h4>
+                      <mat-divider class="horizontal-divider"></mat-divider>
+                      <div class="choose-file">
+                        <input type="file" id="file-input" #fileInput multiple />
+                        <label for="file-input">
+                          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                          &nbsp;
+                          Seleziona un file
+                        </label>
+                        <div id="num-of-files">Nessun file selezionato</div>
+                        <ul id="files-list"></ul>
+                      </div>
+                    </div>
+                  </form>              
+                </mat-card>
+              </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step label="Scarica file">
+          <div>
+            <i class="fa-solid fa-face-smile" style="color: #00ff15b8;font-size: 56px;display: flex;justify-content: center;margin-top: 20px;"></i><span class="complete">Operazione Completata con Successo!</span>
+          </div>
+          <div class="button-container">
+            <button mat-button class="button-left"><i class="fa-solid fa-file-zipper" style="margin-right: 5px; font-size: 18px;"></i>Scarica ZIP</button>
+            <button mat-button class="button-right"><i class="fa-solid fa-arrows-rotate" style="margin-right: 5px; font-size: 18px;"></i>Carica nuova documentazione</button>
+          </div>
+          
+        </mat-step>
+        <ng-template matStepperIcon="PDF">
+            <i class="fa-solid fa-file-pdf" style="color: #f4230b;"></i>
+          </ng-template>
+      
+        <!-- Icon overrides. -->
+        <ng-template matStepperIcon="PDF">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="chat">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
+      </mat-stepper>
+      </mat-sidenav-content>
+      </mat-sidenav-container>

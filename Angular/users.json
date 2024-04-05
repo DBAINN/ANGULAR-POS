@@ -1,0 +1,23 @@
+{
+  "users": [
+
+  
+    {
+      "id": "098c",
+      "Nome": "Riccardo",
+      "Cognome": "Dell'Anna",
+      "Email": "riccardo.dellanna@dbagroup.it",
+      "Password": "1234",
+      "Ruolo": "user"
+    },
+     
+    {
+      "id": "6d02",
+      "Nome": "Antonio",
+      "Cognome": "Politano",
+      "Email": "antonio.politano@dbagroup.it",
+      "Password": "1234",
+      "Ruolo": "admin"
+    }
+  ]
+}

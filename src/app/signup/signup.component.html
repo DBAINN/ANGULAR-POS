@@ -1,0 +1,66 @@
+<form [formGroup]="signupForm" (ngSubmit)="signup()">
+    <div class="container">
+    <div class="centered">
+    <div class="sign-up-text">Registrazione</div>
+    <div class="input-with-icon">
+        <div class="icon-column">
+            <mat-icon class="icon">account_box</mat-icon>
+        </div>
+        <div class="input-column">
+            <mat-form-field style="width: 350px;"><input formControlName="Nome" placeholder="Nome" required></mat-form-field>
+        </div>
+        </div>
+        <div class="input-with-icon">
+            <div class="icon-column">
+                <mat-icon class="icon">account_box</mat-icon>
+            </div>
+                <div class="input-column">
+                    <mat-form-field style="width: 350px;">
+                        <input formControlName="Cognome" matInput placeholder="Cognome">
+                    </mat-form-field>
+                </div>
+        </div>
+        <div class="input-with-icon">
+            <div class="icon-column">
+                <mat-icon class="icon">mail</mat-icon>
+            </div>
+            <div class="input-column">
+                <mat-form-field style="width: 350px;">
+                    <input formControlName="Email" matInput placeholder="Mail">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="input-with-icon">
+            <div class="icon-column">
+                <mat-icon formControlName="Password"class="icon">fingerprint</mat-icon>
+            </div>
+            <div class="input-column">
+                <mat-form-field style="width: 350px;">
+                    <input formControlName="Ruolo" matInput placeholder="Mail">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="input-with-icon">
+            <div class="icon-column">
+                <mat-icon class="icon">work</mat-icon>
+            </div>
+            <div class="input-column">
+                <mat-form-field style="width: 350px;">
+                    <mat-label>Ruolo</mat-label>
+                    <mat-select>
+                        <mat-option value="admin">Admin</mat-option>
+                        <mat-option value="user">User</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            </div>
+            <section style="display: flex; justify-content: center;">
+                <div class="example-button-row" >
+                    <button mat-raised-button class="sign-up-button" block="true" style="padding: 10px 20px; font-size: 17px;color: #1b57efae;">Invia</button>
+                </div>
+            </section>
+
+</div>
+</div>
+</form>
+    

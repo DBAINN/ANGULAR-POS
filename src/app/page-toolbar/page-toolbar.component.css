@@ -1,0 +1,198 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.admin{
+    font-size: 15px;
+    margin-left:3px;
+    margin-right: 50px;
+    margin-top: 5px;
+}
+.example-container {
+    height: 100vh; /* Imposta l'altezza al 100% della viewport */
+    display: flex; /* Utilizza il layout flessibile */
+  }
+  
+  .mat-drawer {
+    width: 250px; /* Larghezza del drawer */
+  }
+  
+  .mat-sidenav-content {
+    flex: 1; /* Il contenuto del sidenav occupa lo spazio rimanente */
+    overflow: auto; /* Consente lo scrolling se il contenuto è troppo grande */
+  }
+  .mat-icon{
+    color: rgb(72, 201, 206);
+  }
+  a.mat-list-item:hover {
+    border-color: blue; /* Cambia il colore del bordo al passaggio del mouse */
+  }
+  button.mat-button:hover {
+    opacity: 0.7; /* Cambia l'opacità al passaggio del mouse */
+    color: black;
+  }
+  .mat-icon.users-admin{
+    font-size: 26px;
+    vertical-align: middle;
+    color: #4f3dd7;
+    margin-left: 2px;
+
+  }
+  .mat-icon.logout{
+    font-size: 20px;
+    color: #0c0c0c;
+    margin-right: 2px;
+   }
+   .mat-icon.logout{
+    margin-top: 3px;
+   }
+   .button-logout:hover{
+    color: #d73d3d;
+  }
+  .mat-icon.menu-class{
+    color: #0c0c0c;
+  }
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Altezza al 100% della viewport */
+  }
+  
+  .form-container {
+    width: calc(50% - 20px); /* Occupa la metà della larghezza del contenitore flessibile, con spazio a sinistra e a destra */
+    margin: 0 50px; /* Aggiungi spazio a sinistra e a destra */
+    height: 400px;
+  }
+  .vertical-divider {
+    width: 1px; /* Larghezza del divider */
+    height: 70%; /* Altezza del divider uguale all'altezza delle card */
+    margin: 0 20px; /* Margine a sinistra e a destra del divider */
+    background-color: black; /* Colore del divider */
+  }
+  .input-with-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.icon-column {
+    flex: 10%; /* Larghezza della colonna dell'icona */
+    display: flex;
+    justify-content: center; /* Centra l'icona verticalmente */
+  }
+
+.input-column {
+    flex: 80%; /* Larghezza della colonna dell'input */
+}
+.space{
+  margin-top: 30px;
+}
+.example-full-width {
+  width: 85%;
+  margin-top: 30px;
+  margin-left: 25px;
+}
+.mat-icon.coord-icon{
+  font-size: 25px !important;
+  color: #e01414cb;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.pdf-search{
+  justify-content: center;
+}
+#input{
+  text-align: center;
+}
+.horizontal-divider {
+  background-color: rgba(207, 199, 199, 0.554); /* Colore del divider */
+  width:auto;
+  margin: 10px 25px;
+}
+
+#reload-button {
+  position: fixed; /* Mantiene il pulsante in una posizione fissa nella viewport */
+  bottom: 20px; /* Posiziona il pulsante a 20px dal bordo inferiore della viewport */
+  right: 20px; /* Posiziona il pulsante a 20px dal bordo destro della viewport */
+  padding: 10px 20px; /* Aggiunge padding interno per dare spazio al testo all'interno del pulsante */
+  background-color: #4b4b4b; /* Colore di sfondo del pulsante */
+  color: white; /* Colore del testo */
+  border: none; /* Rimuove il bordo del pulsante */
+  border-radius: 5px; /* Arrotonda gli angoli del pulsante */
+  cursor: pointer; /* Cambia il cursore in una manina quando si passa sopra al pulsante */
+  width: auto; /* Imposta la larghezza automaticamente basandosi sul contenuto, invece di occupare tutta la larghezza */
+  text-align: center; /* Centra il testo all'interno del pulsante */
+}
+
+#reload-button:hover {
+  background-color: #363636; /* Cambia il colore di sfondo al passaggio del mouse per un feedback visivo */
+}
+.pdf-button{
+  
+  justify-content: center;
+  bottom: 0px;
+  font-size: 17px;
+
+}
+.choose-file{
+  display: block;
+  justify-content: center;
+  margin-top: 25px;
+}
+.just{
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+}
+input[type="file"]{
+  display: none;
+}
+label{
+  display: block;
+  position: relative;
+  color: #ffffff;
+  background-color: #025bee;
+  font-size: 1.12em;
+  font-weight: 500;
+  text-align: center;
+  width: 12.75em;
+  padding: 16px 0;
+  margin: auto;
+  border-radius: 0.31em;
+  cursor: pointer;
+}
+#num-of-files{
+  font-weight: 400;
+  text-align: center;
+  margin: 1.25em 0 1.87em 0;
+  color: #4b4b4b;
+}
+ul{
+  list-style-type: none;
+}
+.example-container li{
+  font-weight: 500;
+  background-color: #eff5ff;
+  color: #025bee;
+  margin-bottom: 1em;
+  padding: 1.1em 1em;
+  border-radius: 0.3em;
+  display: flex;
+  justify-content: space-between;
+}
+form{
+  margin-bottom: 0em ;
+}
+.mat-icon.sidenav-class {
+  color: #4b4b4b;
+}
+.text-sidenav{
+  margin-left: 5px;
+  font-size:12px;
+  align-items: center;
+  color: white;
+}
+#analyzeButton:hover{
+  color: white !important;
+  background-color: #0c0c0c;
+}
